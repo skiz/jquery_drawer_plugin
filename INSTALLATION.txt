@@ -1,0 +1,34 @@
+NOTE: This plugin has only been tested with jQuery 1.4.2
+
+To install this plugin, copy the jquery.drawer.js to your jquery installation on your application.
+
+You will then need to include the javascript file. Do this _after_ your standard jQuery includes.
+
+  <script type="text/javascript" src="/scripts/jquery.drawer.js"></script>
+
+In your HTML you will also need something to slide around.  
+
+  <div id="menuItems"><p>Here are my menu items</p></div>
+  
+To gain the effect of the plugin, you need to set it up as soon as the page is loaded.  Simply used the provided script and change the element, position, and the direction as you see fit.
+
+  	<script type="text/javascript" charset="utf-8">
+      jQuery(document).ready(function(){
+
+  	    $('#menuItems').drawer({
+  	      'speed':200,                    //speed of animation
+  	      'attribute':'marginTop',        //what to move (moved back on open)
+  	      'distance':'-190px',            //how far to move, supports positive/negative numbers
+          'cookie': $.cookie('menuSlide') //jquery.cookie.js support baked in but not required
+          });
+  	  });
+  	</script>
+
+Additional Options:
+If you do not provide a handle option, the element which you call drawer() on will be used.  You can generate a custom handle and pass that element as the handle option for hide/show control.
+
+Oddities:
+Since this plugin is designed to slide an element off the screen, when it is called, the element's parent style is set to 'overflow:hidden' by default. Currently there is no overide.
+
+Disclaimer:
+I'm not a jQuery guru, and I'm trying to learn about the plugin architecture. This plugin is for my own usage, but you are happy to do with it as you will. It should be very easy to extend.
